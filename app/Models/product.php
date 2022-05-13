@@ -8,4 +8,26 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'id',
+        'name',
+        'price',
+        'description',
+        'color',
+        'qtd',
+        'height',
+        'width',
+        'depth',
+        'categories_id',// CHAVE ESTRAGEIRA?
+        'active', // ICONE BRANCO, O QUE SIGNIGICA?
+        'bulks_slugs'// CHAVE ESTRANGEIRA?
+
+        
+    ];
+
+    protected $table = 'products';
+    protected $keyType = 'int';
+    protected $primaryKey = 'id';
+    public $incrementing = false;
 }

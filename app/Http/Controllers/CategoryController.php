@@ -26,7 +26,7 @@ class CategoryController extends Controller{
         $request->validate([
             // DUVIDA NO ITEM CATEGORIES max 2 PIPI-POPO!!, 
             // entra como mesmo item requerido?
-            'id' => 'required|unique:categories|max:2',
+            'id' => 'required|unique:categories|',
             'name' => 'required',
             // DUVIDA NO ITEM CATEGORIES_ID, 
             // entra como mesmo item requerido?
@@ -41,7 +41,7 @@ class CategoryController extends Controller{
     {
         $request->validate([
             // max 2 da mesma forma q o slug?
-            'id' => 'required|max:2',
+            'id' => 'required|', // ID DO PRODUTO NÃO TEM LIMITE COMO DE BULKS ( MAX2)
             'name' => 'required',
             // DUVIDA NO ITEM CATEGORIES_ID, 
             // entra como mesmo item requerido?
