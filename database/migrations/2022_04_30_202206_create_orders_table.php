@@ -24,7 +24,7 @@ class CreateOrdersTable extends Migration
             $table->string('observation',200);
             $table->integer('type_payments_id');
             $table->timestamps();
-            $table->foreign('users_id')->references('id')->on('users');
+            //$table->foreign('users_id')->references('id')->on('users');
             $table->foreign('customers_id')->references('id')->on('customers');
             $table->foreign('type_payments_id')->references('id')->on('type_payments');
         });

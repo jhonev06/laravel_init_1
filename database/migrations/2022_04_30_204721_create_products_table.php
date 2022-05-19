@@ -27,8 +27,8 @@ class CreateProductsTable extends Migration
             $table->tinyInteger('active');
             $table->timestamps();
 
-            $table->foreign('categories_id')->references('id')->on('categories');
-            $table->foreign('bulks_slug')->references('slug')->on('bulks');
+            //$table->foreign('categories_id')->references('id')->on('categories');
+            //$table->foreign('bulks_slug')->references('slug')->on('bulks');
 
         });
     }

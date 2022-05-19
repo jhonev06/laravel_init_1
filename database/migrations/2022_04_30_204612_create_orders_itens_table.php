@@ -14,7 +14,7 @@ class CreateOrdersItensTable extends Migration
     public function up()
     {
         Schema::create('orders_itens', function (Blueprint $table) {
-            $table->seq();
+            //$table->seq();
             $table->integer('orders_id');
             $table->integer('products_id');
             $table->double('quantity');

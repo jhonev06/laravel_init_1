@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Alternative_unit extends Model
 {
     use HasFactory;
+
+    
 }

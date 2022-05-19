@@ -19,7 +19,7 @@ class CreateAlternativesUnitsTable extends Migration
             $table->double('quantity');
             $table->string('divide_or_multiply',1);
             $table->timestamps();
-            $table->foreign('products_id')->references('id')->on('products');
+            //$table->foreign('products_id')->references('id')->on('products');
             $table->foreign('bulks_slug')->references('slug')->on('bulks');
 
 

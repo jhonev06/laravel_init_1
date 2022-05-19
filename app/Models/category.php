@@ -10,11 +10,12 @@ class Category extends Model
     use HasFactory;
 
     protected $fillable = [
-        'id',
+        'id', // PERGUNTAR RAFAEL SOBRE O VIDEO ( 1.50 video STRING INT)
         'name',
         'categories_id'
         
     ];
+// fugindo do padrao, não precisava fazer essa abaixo
 
     protected $table = 'categories';
     protected $keyType = 'int';

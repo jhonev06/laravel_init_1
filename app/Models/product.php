@@ -25,7 +25,7 @@ class Product extends Model
 
         
     ];
-
+// codigo abaixo não precisava pq faz automatico
     protected $table = 'products';
     protected $keyType = 'int';
     protected $primaryKey = 'id';

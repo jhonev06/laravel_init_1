@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 /// rota volumes
-
+// parametro, pq ?
 Route::get('bulks',[BulkController::class,'index']);
 Route::get('bulks/{slug}',[BulkController::class,'show']);
 Route::post('bulks',[BulkController::class,'store']);
@@ -26,6 +26,7 @@ Route::put('bulks/{slug}',[BulkController::class,'update']);
 Route::delete('bulks/{slug}',[BulkController::class,'delete']);
 
 /// rota de categorias
+// parametro ID necessario para rota?
 
 Route::get('categories',[CategoryController::class,'index']);
 Route::get('categories/{id}',[CategoryController::class,'show']);

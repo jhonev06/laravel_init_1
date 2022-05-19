@@ -13,7 +13,7 @@ class BulkController extends Controller{
         $data = Bulk::all();
         return response()->json($data);
     }
-
+// pq parametro slug ?, assinatura do metodo
     public function show($slug)
     {
         $data = Bulk::find($slug);
@@ -23,6 +23,7 @@ class BulkController extends Controller{
     public function store(Request $request)
     {
         $request->validate([
+            // pq slug tem a caracteristca unica ( volume)?
             'slug' => 'required|unique:bulks|max:2',
             'name' => 'required',
         ]);
