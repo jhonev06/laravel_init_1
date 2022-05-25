@@ -15,12 +15,12 @@ class CreateAlternativesUnitsTable extends Migration
     {
         Schema::create('alternatives_units', function (Blueprint $table) {
             $table->integer('product_id');
-            $table->string('bulks_slug',2);
+            $table->string('bulk_slug',2);
             $table->double('quantity');
             $table->string('divide_or_multiply',1);
             $table->timestamps();
             //$table->foreign('products_id')->references('id')->on('products');
-            $table->foreign('bulks_slug')->references('slug')->on('bulks');
+            $table->foreign('bulk_slug')->references('slug')->on('bulks');
 
 
         });

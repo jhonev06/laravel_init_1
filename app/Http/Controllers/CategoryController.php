@@ -24,13 +24,10 @@ class CategoryController extends Controller{
     public function store(Request $request)
     {
         $request->validate([
-            // DUVIDA NO ITEM CATEGORIES max 2 PIPI-POPO!!, 
-            // entra como mesmo item requerido?
-            'id' => 'required|unique:categories|',
+           
             'name' => 'required',
-            // DUVIDA NO ITEM CATEGORIES_ID, 
-            // entra como mesmo item requerido?
-            'categories_id' => 'required'
+            
+            
         ]);
 
         $datacat = Category::create($request->all());

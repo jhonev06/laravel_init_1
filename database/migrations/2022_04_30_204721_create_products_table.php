@@ -24,11 +24,13 @@ class CreateProductsTable extends Migration
             $table->double('width');
             $table->double('depth');
             $table->double('weight');
+            $table->integer('category_id');
+            $table->integer('bulk_slug');
             $table->tinyInteger('active');
             $table->timestamps();
 
-            //$table->foreign('categories_id')->references('id')->on('categories');
-            //$table->foreign('bulks_slug')->references('slug')->on('bulks');
+            $table->foreign('category_id')->references('id')->on('categories');
+            $table->foreign('bulk_slug')->references('slug')->on('bulks');
 
         });
     }

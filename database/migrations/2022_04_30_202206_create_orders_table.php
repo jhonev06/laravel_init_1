@@ -20,13 +20,13 @@ class CreateOrdersTable extends Migration
             $table->date('date');
             $table->string('type',1);
             $table->string('status',1);
-            $table->integer('customers_id');
+            $table->integer('customer_id');
             $table->string('observation',200);
-            $table->integer('type_payments_id');
+            $table->integer('type_payment_id');
             $table->timestamps();
-            //$table->foreign('users_id')->references('id')->on('users');
-            $table->foreign('customers_id')->references('id')->on('customers');
-            $table->foreign('type_payments_id')->references('id')->on('type_payments');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('customer_id')->references('id')->on('customers');
+            $table->foreign('type_payment_id')->references('id')->on('type_payments');
         });
     }
 

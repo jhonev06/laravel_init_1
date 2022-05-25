@@ -14,18 +14,16 @@ class CreateOrdersItensTable extends Migration
     public function up()
     {
         Schema::create('orders_itens', function (Blueprint $table) {
-            //$table->seq();
-            $table->integer('orders_id');
-            $table->integer('products_id');
+            $table->integer('seq');
+            $table->integer('order_id');
+            $table->integer('product_id');
             $table->double('quantity');
             $table->double('value');
             $table->double('discount');
             $table->double('percent_discount');
-
             $table->timestamps();
-
-            $table->foreign('orders_id')->references('id')->on('order');
-            $table->foreign('products_id')->references('id')->on('products');
+            $table->foreign('order_id')->references('id')->on('order');
+            $table->foreign('product_id')->references('id')->on('products');
             
         });
     }

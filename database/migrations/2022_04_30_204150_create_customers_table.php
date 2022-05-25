@@ -23,8 +23,7 @@ class CreateCustomersTable extends Migration
             $table->string('neighborhood',45);
             $table->string('city',45);
             $table->string('number',15);
-            $table->string('state',2);
-            
+            $table->string('state',2);            
             $table->timestamps();
         });
     }

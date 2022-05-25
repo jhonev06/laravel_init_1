@@ -13,13 +13,16 @@ class CreateStocksTable extends Migration
      */
     public function up()
     {
-        Schema::create('stosks', function (Blueprint $table) {
+        Schema::create('stocks', function (Blueprint $table) {
             $table->id();
             $table->double('quantity');
             $table->string('lote');
             $table->timestamps();
-            //$table->foreign('products_id')->references('id')->on('products');
-            //$table->foreign('stock_location_id')->references('id')->on('stock_location');
+            $table->integer('product_id');
+            $table->integer('stock_location_id');
+            
+            $table->foreign('product_id')->references('id')->on('products');
+            $table->foreign('stock_location_id')->references('id')->on('stock_location');
         });
     }
 
@@ -30,6 +33,6 @@ class CreateStocksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('stosks');
+        Schema::dropIfExists('stocks');
     }
 }
