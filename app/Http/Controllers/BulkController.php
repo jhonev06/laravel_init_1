@@ -13,7 +13,7 @@ class BulkController extends Controller{
         $data = Bulk::all();
         return response()->json($data);
     }
-// pq parametro slug ?, assinatura do metodo
+// pq parametro slug ? assinatura do metodo
     public function show($slug)
     {
         $data = Bulk::find($slug);

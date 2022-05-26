@@ -14,7 +14,7 @@ class CreateBulksTable extends Migration
     public function up()
     {
         Schema::create('bulks', function (Blueprint $table) {
-            $table->id();
+            $table->string('slug');
             $table->string('name',45);
             $table->timestamps();
         });

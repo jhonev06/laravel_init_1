@@ -42,7 +42,7 @@ class CategoryController extends Controller{
             'name' => 'required',
             // DUVIDA NO ITEM CATEGORIES_ID, 
             // entra como mesmo item requerido?
-            'categories_id' => 'required'
+            'category_id' => 'required'
         ]);
         $datacat = Category::find($id);
         $datacat->update($request->all());

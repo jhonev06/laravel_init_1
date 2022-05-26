@@ -35,9 +35,9 @@ class ProductController extends Controller
             'height' => 'required',
             'width' => 'required',
             'depth' => 'required',
-            'categories_id' => 'required', // CHAVE ESTRAGEIRA?
+            'category_id' => 'required', // CHAVE ESTRAGEIRA?
             'active' => 'required', // ICONE BRANCO, O QUE SIGNIGICA?
-            'bulks_slugs' => 'required' // CHAVE ESTRANGEIRA?
+            'bulk_slug' => 'required' // CHAVE ESTRANGEIRA?
 
 
         ]);
@@ -58,9 +58,9 @@ class ProductController extends Controller
             'height' => 'required',
             'width' => 'required',
             'depth' => 'required',
-            'categories_id' => 'required', // CHAVE ESTRAGEIRA?
+            'category_id' => 'required', // CHAVE ESTRAGEIRA?
             'active' => 'required', // ICONE BRANCO, O QUE SIGNIGICA?
-            'bulks_slugs' => 'required' // CHAVE ESTRANGEIRA?
+            'bulk_slug' => 'required' // CHAVE ESTRANGEIRA?
         ]);
         $datapro = Product::find($id);
         $datapro->update($request->all());

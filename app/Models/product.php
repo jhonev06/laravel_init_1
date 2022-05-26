@@ -19,9 +19,9 @@ class Product extends Model
         'height',
         'width',
         'depth',
-        'categories_id',// CHAVE ESTRAGEIRA?
+        'category_id',// CHAVE ESTRAGEIRA?
         'active', // ICONE BRANCO, O QUE SIGNIGICA?
-        'bulks_slugs'// CHAVE ESTRANGEIRA?
+        'bulk_slug'// CHAVE ESTRANGEIRA?
 
         
     ];
