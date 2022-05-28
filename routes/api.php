@@ -3,6 +3,10 @@
 use App\Http\Controllers\BulkController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\Alternative_UnitController;
+use App\Http\Controllers\Stock_LocationController;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -37,7 +41,31 @@ Route::delete('categories/{id}',[CategoryController::class,'delete']);
 // CRIA ROTA PRODUTOS, COMO FAZ?
 
 Route::get('products',[ProductController::class,'index']);
-Route::get('productss/{id}',[ProductController::class,'show']);
+Route::get('products/{id}',[ProductController::class,'show']);
 Route::post('products',[ProductController::class,'store']);
 Route::put('products/{id}',[ProductController::class,'update']);
 Route::delete('products/{id}',[ProductController::class,'delete']);
+
+// ROTA CUSTOMERS
+
+Route::get('customers',[CustomerController::class,'index']);
+Route::get('customers/{id}',[CustomerController::class,'show']);
+Route::post('customers',[CustomerController::class,'store']);
+Route::put('customers/{id}',[CustomerController::class,'update']);
+Route::delete('customers/{id}',[CustomerController::class,'delete']);
+
+// ROTA UNIDADE ALTERNATIVAS, não possui chave primaria?
+
+Route::get('alternatives_units',[Alternative_UnitController::class,'index']);
+Route::get('alternatives_units/{}',[Alternative_UnitController::class,'show']);
+Route::post('alternatives_units',[Alternative_UnitController::class,'store']);
+Route::put('alternatives_units/{}',[Alternative_UnitController::class,'update']);
+Route::delete('alternatives_units/{}',[Alternative_UnitController::class,'delete']);
+
+// rota stock locations
+
+Route::get('stocks_locations',[Stock_LocationController::class,'index']);
+Route::get('stocks_locations/{id}',[Stock_LocationController::class,'show']);
+Route::post('stocks_locations',[Stock_LocationController::class,'store']);
+Route::put('stocks_locations/{id}',[Stock_LocationController::class,'update']);
+Route::delete('stocks_locations/{id}',[Stock_LocationController::class,'delete']);

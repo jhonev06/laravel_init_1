@@ -10,7 +10,7 @@ class Customer extends Model
     use HasFactory;
 
     protected $fillable = [
-        'id',
+        'id', // auto incrementa?
         'name',
         'price',
         'document',
@@ -23,11 +23,10 @@ class Customer extends Model
         'state' 
                 
     ];
-// codigo abaixo não precisava pq faz automatico
-// rafael que não precisa fazer, olhando no olho, alcolizado
-    protected $table = 'Customer';
-    protected $keyType = 'int';
-    protected $primaryKey = 'id';
-    public $incrementing = false;
+// codigo abaixo não precisava pq faz automatico, id...
+// rafael diz que não precisa fazer, qnd estava saindo da casa dele..
+// ele alcolizado me disse isso
+    protected $table = 'Customers';
+    
 }
 

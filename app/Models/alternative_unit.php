@@ -9,5 +9,7 @@ class Alternative_unit extends Model
 {
     use HasFactory;
 
+    // COMO CRIAR MODEL SEM CHAVE PRIMARIA?
+    // TABELA SÓ TEM CHAVE ESTRANGEIRA
     
 }

@@ -26,17 +26,17 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'id' => 'required|unique:bulks|',
+            //id removido alto incrmenta
             'name' => 'required',
             'price' => 'required',
-            'description' => 'required',
+            'description',
             'color' => 'required',
-            'qtd' => 'required',
+            'qtd' => 'required' ,
             'height' => 'required',
             'width' => 'required',
             'depth' => 'required',
             'category_id' => 'required', // CHAVE ESTRAGEIRA?
-            'active' => 'required', // ICONE BRANCO, O QUE SIGNIGICA?
+            'active', // ICONE BRANCO, O QUE SIGNIGICA?
             'bulk_slug' => 'required' // CHAVE ESTRANGEIRA?
 
 
@@ -49,18 +49,18 @@ class ProductController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'id' => 'required|unique:bulks|',
+            'id' => 'required',
             'name' => 'required',
             'price' => 'required',
-            'description' => 'required',
+            'description',
             'color' => 'required',
-            'qtd' => 'required',
+            'qtd' => 'required' ,
             'height' => 'required',
             'width' => 'required',
             'depth' => 'required',
             'category_id' => 'required', // CHAVE ESTRAGEIRA?
-            'active' => 'required', // ICONE BRANCO, O QUE SIGNIGICA?
-            'bulk_slug' => 'required' // CHAVE ESTRANGEIRA?
+            'active', // ICONE BRANCO, O QUE SIGNIGICA?
+            'bulk_slug' => 'required' //CHAVE ESTRANGEIRA?
         ]);
         $datapro = Product::find($id);
         $datapro->update($request->all());

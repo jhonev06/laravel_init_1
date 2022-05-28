@@ -35,7 +35,7 @@ class BulkController extends Controller{
     public function update(Request $request, $slug)
     {
         $request->validate([
-            'slug' => 'required|max:2',
+            'slug' =>'required|unique:bulks|max:2',
             'name' => 'required',
         ]);
         $data = Bulk::find($slug);
