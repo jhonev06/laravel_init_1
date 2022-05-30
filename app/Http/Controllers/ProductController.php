@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use phpDocumentor\Reflection\Types\Nullable;
 
 class ProductController extends Controller
 {
@@ -29,15 +30,15 @@ class ProductController extends Controller
             //id removido alto incrmenta
             'name' => 'required',
             'price' => 'required',
-            'description',
-            'color' => 'required',
+            'description'=> 'nullable',
+            'color' => 'nullable',
             'qtd' => 'required' ,
             'height' => 'required',
             'width' => 'required',
             'depth' => 'required',
-            'category_id' => 'required', // CHAVE ESTRAGEIRA?
-            'active', // ICONE BRANCO, O QUE SIGNIGICA?
-            'bulk_slug' => 'required' // CHAVE ESTRANGEIRA?
+            'category_id'=> 'required', // CHAVE ESTRAGEIRA?
+            'active' => 'nullable',// ICONE BRANCO, O QUE SIGNIGICA // requerida?
+            'bulk_slug'=> 'nullable' // CHAVE ESTRANGEIRA, requerda, dando erro no postman?
 
 
         ]);
@@ -52,15 +53,15 @@ class ProductController extends Controller
             'id' => 'required',
             'name' => 'required',
             'price' => 'required',
-            'description',
-            'color' => 'required',
+            'description'=> 'nullable',
+            'color' => 'nullable',
             'qtd' => 'required' ,
             'height' => 'required',
             'width' => 'required',
             'depth' => 'required',
-            'category_id' => 'required', // CHAVE ESTRAGEIRA?
-            'active', // ICONE BRANCO, O QUE SIGNIGICA?
-            'bulk_slug' => 'required' //CHAVE ESTRANGEIRA?
+            'category_id'=> 'nullable', // CHAVE ESTRAGEIRA, requerida?
+            'active'=> 'nullable', // ICONE BRANCO, O QUE SIGNIGICA?
+            'bulk_slug'=> 'nullable' //CHAVE ESTRANGEIRA, requerida?
         ]);
         $datapro = Product::find($id);
         $datapro->update($request->all());

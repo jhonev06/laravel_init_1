@@ -15,15 +15,16 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->integer('number');
-            $table->integer('user_id');
+            $table->integer('number')->default(0);
+            $table->integer('user_id')->default(0);// foreign key?
             $table->date('date');
             $table->string('type',1);
             $table->string('status',1);
-            $table->integer('customer_id');
+            $table->integer('customer_id')->default(0);// foreign key?
             $table->string('observation',200);
-            $table->integer('type_payment_id');
+            $table->integer('type_payment_id')->default(0);// foreign key
             $table->timestamps();
+            
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('customer_id')->references('id')->on('customers');
             $table->foreign('type_payment_id')->references('id')->on('type_payments');

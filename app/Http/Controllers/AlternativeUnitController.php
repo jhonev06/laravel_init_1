@@ -34,7 +34,7 @@ class Alternative_UnitController extends Controller{
         return response()->json($dataL);
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, $id) // corrigir chave primaria desta tabea
     {
         $request->validate([
             

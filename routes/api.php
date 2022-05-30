@@ -6,6 +6,12 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\Alternative_UnitController;
 use App\Http\Controllers\Stock_LocationController;
+use App\Http\Controllers\Order_ItenController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\Type_PaymentController;
+use App\Http\Controllers\User_Has_CustomerController;
+use App\Http\Controllers\StockController;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -23,6 +29,8 @@ use Illuminate\Support\Facades\Route;
 
 /// rota volumes
 // parametro, pq ?
+
+
 Route::get('bulks',[BulkController::class,'index']);
 Route::get('bulks/{slug}',[BulkController::class,'show']);
 Route::post('bulks',[BulkController::class,'store']);
@@ -69,3 +77,55 @@ Route::get('stocks_locations/{id}',[Stock_LocationController::class,'show']);
 Route::post('stocks_locations',[Stock_LocationController::class,'store']);
 Route::put('stocks_locations/{id}',[Stock_LocationController::class,'update']);
 Route::delete('stocks_locations/{id}',[Stock_LocationController::class,'delete']);
+
+// rota stocks - não possui chave primaria, como faz?
+
+Route::get('stocks',[StockController::class,'index']);
+Route::get('stocks/{}',[StockController::class,'show']);// naõ possui chave prim
+Route::post('stocks',[StockController::class,'store']);
+Route::put('stocks/{}',[StockController::class,'update']);
+Route::delete('stocks/{}',[StockController::class,'delete']);
+
+
+// rota orders itens
+
+Route::get('orders_itens',[Order_ItenController::class,'index']);
+Route::get('orders_itens/{seq}',[Order_ItenController::class,'show']);
+Route::post('orders_itens',[Order_ItenController::class,'store']);
+Route::put('orders_itens/{seq}',[Order_ItenController::class,'update']);
+Route::delete('orders_itens/{seq}',[Order_ItenController::class,'delete']);
+
+// rota orders
+
+Route::get('orders',[OrderController::class,'index']);
+Route::get('orders/{id}',[OrderController::class,'show']);
+Route::post('orders',[OrderController::class,'store']);
+Route::put('orders/{id}',[OrderController::class,'update']);
+Route::delete('orders/{id}',[OrderController::class,'delete']);
+
+// rota user
+
+Route::get('users',[UserController::class,'index']);
+Route::get('users/{id}',[UserController::class,'show']);
+Route::post('users',[UserController::class,'store']);
+Route::put('users/{id}',[UserController::class,'update']);
+Route::delete('users/{id}',[UserController::class,'delete']);
+
+// rota Type Payment
+
+Route::get('type_payments',[Type_PaymentController::class,'index']);
+Route::get('type_payments/{id}',[Type_PaymentController::class,'show']);
+Route::post('type_payments',[Type_PaymentController::class,'store']);
+Route::put('type_payments/{id}',[Type_PaymentController::class,'update']);
+Route::delete('type_payments/{id}',[Type_PaymentController::class,'delete']);
+
+// user has Customer rota, possui somente chave estrangeira
+
+
+Route::get('user_has_customers',[User_Has_CustomerController::class,'index']);
+Route::get('user_has_customers/{}',[User_Has_CustomerController::class,'show']);// naõ possui chave prim
+Route::post('user_has_customers',[User_Has_CustomerController::class,'store']);
+Route::put('user_has_customers/{}',[User_Has_CustomerController::class,'update']);
+Route::delete('User_Has_Customers/{}',[User_Has_CustomerController::class,'delete']);
+
+

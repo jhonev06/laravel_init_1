@@ -14,10 +14,10 @@ class CreateAlternativesUnitsTable extends Migration
     public function up()
     {
         Schema::create('alternatives_units', function (Blueprint $table) {
-            $table->integer('product_id');
+            $table->integer('product_id')->default(0);// qual valor defaut?
             $table->string('bulk_slug',2);
             $table->double('quantity')->default(0);
-            $table->string('divide_or_multiply',1)->default(0);
+            $table->string('divide_or_multiply',1);
             $table->timestamps();
             
             $table->foreign('product_id')->references('id')->on('products');

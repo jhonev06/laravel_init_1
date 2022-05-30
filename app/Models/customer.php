@@ -26,7 +26,7 @@ class Customer extends Model
 // codigo abaixo não precisava pq faz automatico, id...
 // rafael diz que não precisa fazer, qnd estava saindo da casa dele..
 // ele alcolizado me disse isso
-    protected $table = 'Customers';
+    protected $table = 'customers';
     
 }
 

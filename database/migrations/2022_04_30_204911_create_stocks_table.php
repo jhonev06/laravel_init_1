@@ -14,12 +14,12 @@ class CreateStocksTable extends Migration
     public function up()
     {
         Schema::create('stocks', function (Blueprint $table) {
-            $table->id();
-            $table->double('quantity');
-            $table->string('lote');
+            $table->id(); // a migration sempre tem um ID ? o esboço do banco não tem ID
+            $table->double('qtd')->default(0);
+            $table->string('lote');            
+            $table->integer('product_id')->default(0);// foreign key
+            $table->integer('stock_location_id')->default(0);// foreign key
             $table->timestamps();
-            $table->integer('product_id');
-            $table->integer('stock_location_id');
             
             $table->foreign('product_id')->references('id')->on('products');
             $table->foreign('stock_location_id')->references('id')->on('stock_location');

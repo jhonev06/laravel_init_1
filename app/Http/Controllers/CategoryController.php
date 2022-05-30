@@ -37,11 +37,9 @@ class CategoryController extends Controller{
     public function update(Request $request, $id)
     {
         $request->validate([
-            // max 2 da mesma forma q o slug?
+            
             'id' => 'required|', // ID DO PRODUTO NÃO TEM LIMITE COMO DE BULKS ( MAX2)
             'name' => 'required',
-            // DUVIDA NO ITEM CATEGORIES_ID, 
-            // entra como mesmo item requerido?
             'category_id' => 'required'
         ]);
         $datacat = Category::find($id);
