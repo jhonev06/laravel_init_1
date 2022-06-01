@@ -2,56 +2,49 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Type_PaymentRequest;
 use App\Models\Type_Payment;
 use Illuminate\Http\Request;
 
-class Type_PaymentController extends Controller
-{
+class Type_PaymentController extends Controller{
 
+    private $model;
+    public function __construct(Type_Payment $model)
+    {
+        $this->model = $model;
+    }
 
     public function index()
     {
-        // variavel "dataty" pra controller de Type_Payment
-        $dataty = Type_Payment::all();
-        return response()->json($dataty);
+        $data = $this->model->all();
+        return response()->json($data);
     }
 
     public function show($id)
     {
-        $dataty = Type_Payment::find($id);
-        return response()->json($dataty);
+        $data = $this->model->find($id);
+        return response()->json($data);
     }
 
-    public function store(Request $request)
+    public function store(Type_PaymentRequest $request)
     {
-        $request->validate([
-            // tirei o ID daqui 
-            'name' => 'required',           
-            
-
-        ]);
-
-        $dataty = Type_Payment::create($request->all());
-        return response()->json($dataty);
+        $data = $this->model->create($request->all());
+        return response()->json($data);
     }
 
-    public function update(Request $request, $id)
+    public function update(Type_PaymentRequest $request, $id)
     {
-        $request->validate([
-            'id' => 'required|',
-            'name' => 'required',           
-            
-        ]);
-        $dataty = Type_Payment::find($id);
-        $dataty->update($request->all());
-        return response()->json($dataty);
+        $data = $this->model->find($id);
+        $data->update($request->all());
+        return response()->json($data);
     }
 
     public function delete($id)
     {
-        $dataty = Type_Payment::find($id);
-        $dataty->delete();
+        $data = $this->model->find($id);
+        $data->delete();
 
-        return response()->json('', 201);
+        return response()->json('',201);
     }
+
 }

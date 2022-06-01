@@ -2,55 +2,47 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CategoryRequest;
 use App\Models\Category;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller{
 
+    private $model;
+    public function __construct(Category $model)
+    {
+        $this->model = $model;
+    }
 
     public function index()
     {
-        // variavel "datacat" pra controller de cagoria
-        $datacat = Category::all();
-        return response()->json($datacat);
+        $data = $this->model->all();
+        return response()->json($data);
     }
 
     public function show($id)
     {
-        $datacat = Category::find($id);
-        return response()->json($datacat);
+        $data = $this->model->find($id);
+        return response()->json($data);
     }
 
-    public function store(Request $request)
+    public function store(CategoryRequest $request)
     {
-        $request->validate([
-           
-            'name' => 'required',
-            
-            
-        ]);
-
-        $datacat = Category::create($request->all());
-        return response()->json($datacat);
+        $data = $this->model->create($request->all());
+        return response()->json($data);
     }
 
-    public function update(Request $request, $id)
+    public function update(CategoryRequest $request, $id)
     {
-        $request->validate([
-            
-            'id' => 'required|', // ID DO PRODUTO NÃO TEM LIMITE COMO DE BULKS ( MAX2)
-            'name' => 'required',
-            'category_id' => 'required'
-        ]);
-        $datacat = Category::find($id);
-        $datacat->update($request->all());
-        return response()->json($datacat);
+        $data = $this->model->find($id);
+        $data->update($request->all());
+        return response()->json($data);
     }
 
     public function delete($id)
     {
-        $datacat = Category::find($id);
-        $datacat->delete();
+        $data = $this->model->find($id);
+        $data->delete();
 
         return response()->json('',201);
     }

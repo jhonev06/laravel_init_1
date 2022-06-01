@@ -2,64 +2,47 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Order_ItenRequest;
 use App\Models\Order_Iten;
 use Illuminate\Http\Request;
 
 class Order_ItenController extends Controller{
 
+    private $model;
+    public function __construct(Order_Iten $model)
+    {
+        $this->model = $model;
+    }
 
     public function index()
     {
-        // variavel "dataord" pra controller de order itens?
-        $dataord = Order_Iten::all();
-        return response()->json($dataord);
+        $data = $this->model->all();
+        return response()->json($data);
     }
 
-    public function show($seq)
+    public function show($id)
     {
-        $dataord = Order_Iten::find($seq);
-        return response()->json($dataord);
+        $data = $this->model->find($id);
+        return response()->json($data);
     }
 
-    public function store(Request $request)
+    public function store(Order_ItenRequest $request)
     {
-        $request->validate([
-           
-        'seq' => 'required|unique', // dado único, é alto incrementado com ID?
-        'order_id',// foreign key??
-        'product_id',// foreign key??
-        'qtd' => 'required',
-        'value' => 'required',
-        'discount' => 'required',
-        'perc_discount' => 'required'
-            
-            
-        ]);
-
-        $dataord = Order_Iten::create($request->all());
-        return response()->json($dataord);
+        $data = $this->model->create($request->all());
+        return response()->json($data);
     }
 
-    public function update(Request $request, $seq)
+    public function update(Order_ItenRequest $request, $id)
     {
-        $request->validate([
-            'seq' => 'required|unique',// dado único, é alto incrementado com ID?
-            'order_id',// foreign key??
-            'product_id',// foreign key??
-            'qtd' => 'required',
-            'value' => 'required',
-            'discount' => 'required',
-            'perc_discount' => 'required'
-        ]);
-        $dataord = Order_Iten::find($seq);
-        $dataord->update($request->all());
-        return response()->json($dataord);
+        $data = $this->model->find($id);
+        $data->update($request->all());
+        return response()->json($data);
     }
 
-    public function delete($seq)
+    public function delete($id)
     {
-        $dataord = Order_Iten::find($seq);
-        $dataord->delete();
+        $data = $this->model->find($id);
+        $data->delete();
 
         return response()->json('',201);
     }

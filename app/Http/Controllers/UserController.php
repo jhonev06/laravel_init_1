@@ -2,64 +2,49 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 
-class UserController extends Controller
-{
+class UserController extends Controller{
 
+    private $model;
+    public function __construct(User $model)
+    {
+        $this->model = $model;
+    }
 
     public function index()
     {
-        // variavel "dataus" pra controller de user
-        $dataus = User::all();
-        return response()->json($dataus);
+        $data = $this->model->all();
+        return response()->json($data);
     }
 
     public function show($id)
     {
-        $dataus = User::find($id);
-        return response()->json($dataus);
+        $data = $this->model->find($id);
+        return response()->json($data);
     }
 
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
-        $request->validate([
-            // tirei o ID daqui pq alto incrementa
-            'name' => 'required',           
-            'email' => 'required',
-            'password' => 'required',
-            'type' => 'required',
-
-
-
-
-
-        ]);
-
-        $dataus = User::create($request->all());
-        return response()->json($dataus);
+        $data = $this->model->create($request->all());
+        return response()->json($data);
     }
 
-    public function update(Request $request, $id)
+    public function update(UserRequest $request, $id)
     {
-        $request->validate([
-            'id' => 'required|',
-            'name' => 'required',           
-            'email' => 'required',
-            'password' => 'required',
-            'type' => 'required',
-        ]);
-        $dataus = User::find($id);
-        $dataus->update($request->all());
-        return response()->json($dataus);
+        $data = $this->model->find($id);
+        $data->update($request->all());
+        return response()->json($data);
     }
 
     public function delete($id)
     {
-        $dataus = User::find($id);
-        $dataus->delete();
+        $data = $this->model->find($id);
+        $data->delete();
 
-        return response()->json('', 201);
+        return response()->json('',201);
     }
+
 }

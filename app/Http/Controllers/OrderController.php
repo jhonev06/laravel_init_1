@@ -2,72 +2,49 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\OrderRequest;
 use App\Models\Order;
 use Illuminate\Http\Request;
 
-class OrderController extends Controller
-{
+class OrderController extends Controller{
 
+    private $model;
+    public function __construct(Order $model)
+    {
+        $this->model = $model;
+    }
 
     public function index()
     {
-        // variavel "dataord" pra controller decustomres 
-        $dataord = Order::all();
-        return response()->json($dataord);
+        $data = $this->model->all();
+        return response()->json($data);
     }
 
     public function show($id)
     {
-        $dataord = Order::find($id);
-        return response()->json($dataord);
+        $data = $this->model->find($id);
+        return response()->json($data);
     }
 
-    public function store(Request $request)
+    public function store(OrderRequest $request)
     {
-        $request->validate([
-            // campo ID removido 
-            'number' => 'required|',
-            'user_id', // foreign key
-            'date' => 'required|',
-            'type' => 'required|',
-            'status' => 'required|',
-            'customer_id', // foreign key
-            'observation', // null
-            'type_payment_id' // foreign key
-
-
-
-
-
-        ]);
-
-        $dataord = Order::create($request->all());
-        return response()->json($dataord);
+        $data = $this->model->create($request->all());
+        return response()->json($data);
     }
 
-    public function update(Request $request, $id)
+    public function update(OrderRequest $request, $id)
     {
-        $request->validate([
-            'id',
-            'number' => 'required|',
-            'user_id', // foreign key
-            'date' => 'required|',
-            'type' => 'required|',
-            'status' => 'required|',
-            'customer_id', // foreign key
-            'observation', // null
-            'type_payment_id' // foreign key
-        ]);
-        $dataord = Order::find($id);
-        $dataord->update($request->all());
-        return response()->json($dataord);
+        $data = $this->model->find($id);
+        $data->update($request->all());
+        return response()->json($data);
     }
 
     public function delete($id)
     {
-        $dataord = Order::find($id);
-        $dataord->delete();
+        $data = $this->model->find($id);
+        $data->delete();
 
-        return response()->json('', 201);
+        return response()->json('',201);
     }
+
 }

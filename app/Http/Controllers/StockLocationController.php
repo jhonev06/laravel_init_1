@@ -2,50 +2,48 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StockLocationRequest;
 use App\Models\Stock_Location;
+use App\Models\StockLocation;
 use Illuminate\Http\Request;
 
 class StockLocationController extends Controller{
 
+    private $model;
+    public function __construct( Stock_Location $model)
+    {
+        $this->model = $model;
+    }
 
     public function index()
     {
-        $datastockl = Stock_Location::all();
-        return response()->json($datastockl);
+        $data = $this->model->all();
+        return response()->json($data);
     }
-// pq parametro id ? assinatura do metodo
+
     public function show($id)
     {
-        $datastockl = Stock_Location::find($id);
-        return response()->json($datastockl);
+        $data = $this->model->find($id);
+        return response()->json($data);
     }
 
-    public function store(Request $request)
+    public function store(StockLocationRequest $request)
     {
-        $request->validate([
-            
-            'description' => 'required',
-        ]);
-
-        $datastockl = Stock_Location::create($request->all());
-        return response()->json($datastockl);
+        $data = $this->model->create($request->all());
+        return response()->json($data);
     }
 
-    public function update(Request $request, $id)
+    public function update(StockLocationRequest $request, $id)
     {
-        $request->validate([
-            'id'=>'required',
-            'description' => 'required',
-        ]);
-        $datastockl = Stock_Location::find($id);
-        $datastockl->update($request->all());
-        return response()->json($datastockl);
+        $data = $this->model->find($id);
+        $data->update($request->all());
+        return response()->json($data);
     }
 
     public function delete($id)
     {
-        $datastockl = Stock_Location::find($id);
-        $datastockl->delete();
+        $data = $this->model->find($id);
+        $data->delete();
 
         return response()->json('',201);
     }

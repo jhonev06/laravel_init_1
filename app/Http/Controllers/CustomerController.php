@@ -2,72 +2,47 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CustomerRequest;
 use App\Models\Customer;
 use Illuminate\Http\Request;
 
 class CustomerController extends Controller{
 
+    private $model;
+    public function __construct(Customer $model)
+    {
+        $this->model = $model;
+    }
 
     public function index()
     {
-        // variavel "datacus" pra controller decustomres 
-        $datacus = Customer::all();
-        return response()->json($datacus);
+        $data = $this->model->all();
+        return response()->json($data);
     }
 
     public function show($id)
     {
-        $datacus = Customer::find($id);
-        return response()->json($datacus);
+        $data = $this->model->find($id);
+        return response()->json($data);
     }
 
-    public function store(Request $request)
+    public function store(CustomerRequest $request)
     {
-        $request->validate([
-            // tirei o ID daqui pq alto incrementa
-            'name' => 'required',
-            'document' => 'required',
-            'email' => 'required',
-            'postal_code' => 'required',
-            'address' => 'required',
-            'neighborhood' => 'required',
-            'city' => 'required',
-            'number' => 'required',
-            'state' => 'required',
-            
-
-
-            
-            
-        ]);
-
-        $datacus = Customer::create($request->all());
-        return response()->json($datacus);
+        $data = $this->model->create($request->all());
+        return response()->json($data);
     }
 
-    public function update(Request $request, $id)
+    public function update(CustomerRequest $request, $id)
     {
-        $request->validate([
-            'id' => 'required|',
-            'name' => 'required',
-            'document' => 'required',
-            'email' => 'required',
-            'postal_code' => 'required',
-            'address' => 'required',
-            'neighborhood' => 'required',
-            'city' => 'required',
-            'number' => 'required',
-            'state' => 'required',
-        ]);
-        $datacus = Customer::find($id);
-        $datacus->update($request->all());
-        return response()->json($datacus);
+        $data = $this->model->find($id);
+        $data->update($request->all());
+        return response()->json($data);
     }
 
     public function delete($id)
     {
-        $datacus = Customer::find($id);
-        $datacus->delete();
+        $data = $this->model->find($id);
+        $data->delete();
 
         return response()->json('',201);
     }
