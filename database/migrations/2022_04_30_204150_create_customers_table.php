@@ -18,12 +18,12 @@ class CreateCustomersTable extends Migration
             $table->string('name',45);
             $table->string('document',20);
             $table->string('email',45);
-            $table->string('postal_code',15);
-            $table->string('address',100);
-            $table->string('neighborhood',45);
-            $table->string('city',45);
-            $table->string('number',15);
-            $table->string('state',2);            
+            $table->string('postal_code',15)->nullable();
+            $table->string('address',100)->nullable();
+            $table->string('neighborhood',45)->nullable();
+            $table->string('city',45)->nullable();
+            $table->string('number',15)->nullable();
+            $table->string('state',2)->nullable();            
             $table->timestamps();
         });
     }

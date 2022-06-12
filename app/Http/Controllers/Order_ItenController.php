@@ -20,9 +20,9 @@ class Order_ItenController extends Controller{
         return response()->json($data);
     }
 
-    public function show($id)
+    public function show($seq)
     {
-        $data = $this->model->find($id);
+        $data = $this->model->find($seq);
         return response()->json($data);
     }
 
@@ -32,16 +32,16 @@ class Order_ItenController extends Controller{
         return response()->json($data);
     }
 
-    public function update(Order_ItenRequest $request, $id)
+    public function update(Order_ItenRequest $request, $seq)
     {
-        $data = $this->model->find($id);
+        $data = $this->model->find($seq);
         $data->update($request->all());
         return response()->json($data);
     }
 
-    public function delete($id)
+    public function delete($seq)
     {
-        $data = $this->model->find($id);
+        $data = $this->model->find($seq);
         $data->delete();
 
         return response()->json('',201);

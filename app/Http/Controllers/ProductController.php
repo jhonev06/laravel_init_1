@@ -2,77 +2,49 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProductRequest;
 use App\Models\Product;
 use Illuminate\Http\Request;
-use phpDocumentor\Reflection\Types\Nullable;
 
-class ProductController extends Controller
-{
+class ProductController extends Controller{
 
-    // CRIADA UMA VARIAVEL PARA PRODUTOS ( datapro)
-    // id chave primaria não tem limite de 2 como em slug : MAX 2
+    private $model;
+    public function __construct(Product $model)
+    {
+        $this->model = $model;
+    }
 
     public function index()
     {
-        $datapro = Product::all();
-        return response()->json($datapro);
+        $data = $this->model->all();
+        return response()->json($data);
     }
 
     public function show($id)
     {
-        $datapro = Product::find($id);
-        return response()->json($datapro);
+        $data = $this->model->find($id);
+        return response()->json($data);
     }
 
-    public function store(Request $request)
+    public function store(ProductRequest $request)
     {
-        $request->validate([
-            //id removido alto incrmenta
-            'name' => 'required',
-            'price' => 'required',
-            'description'=> 'nullable',
-            'color' => 'nullable',
-            'qtd' => 'required' ,
-            'height' => 'required',
-            'width' => 'required',
-            'depth' => 'required',
-            'category_id'=> 'required', // CHAVE ESTRAGEIRA?
-            'active' => 'nullable',// ICONE BRANCO, O QUE SIGNIGICA // requerida?
-            'bulk_slug'=> 'nullable' // CHAVE ESTRANGEIRA, requerda, dando erro no postman?
-
-
-        ]);
-
-        $datapro = Product::create($request->all());
-        return response()->json($datapro);
+        $data = $this->model->create($request->all());
+        return response()->json($data);
     }
 
-    public function update(Request $request, $id)
+    public function update(ProductRequest $request, $id)
     {
-        $request->validate([
-            'id' => 'required',
-            'name' => 'required',
-            'price' => 'required',
-            'description'=> 'nullable',
-            'color' => 'nullable',
-            'qtd' => 'required' ,
-            'height' => 'required',
-            'width' => 'required',
-            'depth' => 'required',
-            'category_id'=> 'nullable', // CHAVE ESTRAGEIRA, requerida?
-            'active'=> 'nullable', // ICONE BRANCO, O QUE SIGNIGICA?
-            'bulk_slug'=> 'nullable' //CHAVE ESTRANGEIRA, requerida?
-        ]);
-        $datapro = Product::find($id);
-        $datapro->update($request->all());
-        return response()->json($datapro);
+        $data = $this->model->find($id);
+        $data->update($request->all());
+        return response()->json($data);
     }
 
     public function delete($id)
     {
-        $datapro = Product::find($id);
-        $datapro->delete();
+        $data = $this->model->find($id);
+        $data->delete();
 
-        return response()->json('', 201);
+        return response()->json('',201);
     }
+
 }

@@ -26,7 +26,7 @@ class CreateProductsTable extends Migration
             $table->double('weight')->default(0);
             $table->integer('category_id');
             $table->string('bulk_slug');
-            $table->tinyInteger('active')->nullable();
+            $table->boolean('active')->nullable();
             $table->timestamps();
 
             $table->foreign('category_id')->references('id')->on('categories');

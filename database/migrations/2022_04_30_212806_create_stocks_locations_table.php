@@ -15,7 +15,7 @@ class CreateStocksLocationsTable extends Migration
     {
         Schema::create('stocks_locations', function (Blueprint $table) {
             $table->id();
-            $table->string('descricption',45);
+            $table->string('description',45);
             $table->timestamps();
         });
     }

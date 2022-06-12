@@ -11,12 +11,12 @@ class Order_Iten extends Model
 
     protected $fillable = [
         'seq',
-        'orders_id',// foreign key
+        'order_id',// foreign key
         'product_id',// foreign key
-        'qtd',
+        'quantity',
         'value',
         'discount',
-        'perc_discount'
+        'percent_discount'
         
     ];
 

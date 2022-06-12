@@ -4,8 +4,8 @@ use App\Http\Controllers\BulkController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CustomerController;
-use App\Http\Controllers\Alternative_UnitController;
-use App\Http\Controllers\Stock_LocationController;
+//use App\Http\Controllers\Alternative_UnitController;
+use App\Http\Controllers\StockLocationController;
 use App\Http\Controllers\Order_ItenController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\UserController;
@@ -64,19 +64,19 @@ Route::delete('customers/{id}',[CustomerController::class,'delete']);
 
 // ROTA UNIDADE ALTERNATIVAS, não possui chave primaria?
 
-Route::get('alternatives_units',[Alternative_UnitController::class,'index']);
-Route::get('alternatives_units/{}',[Alternative_UnitController::class,'show']);
-Route::post('alternatives_units',[Alternative_UnitController::class,'store']);
-Route::put('alternatives_units/{}',[Alternative_UnitController::class,'update']);
-Route::delete('alternatives_units/{}',[Alternative_UnitController::class,'delete']);
+//Route::get('alternatives_units',[Alternative_UnitController::class,'index']);
+//Route::get('alternatives_units/{}',[Alternative_UnitController::class,'show']);
+//Route::post('alternatives_units',[Alternative_UnitController::class,'store']);
+//Route::put('alternatives_units/{}',[Alternative_UnitController::class,'update']);
+//Route::delete('alternatives_units/{}',[Alternative_UnitController::class,'delete']);
 
 // rota stock locations
 
-Route::get('stocks_locations',[Stock_LocationController::class,'index']);
-Route::get('stocks_locations/{id}',[Stock_LocationController::class,'show']);
-Route::post('stocks_locations',[Stock_LocationController::class,'store']);
-Route::put('stocks_locations/{id}',[Stock_LocationController::class,'update']);
-Route::delete('stocks_locations/{id}',[Stock_LocationController::class,'delete']);
+Route::get('stocks_locations',[StockLocationController::class,'index']);
+Route::get('stocks_locations/{id}',[StockLocationController::class,'show']);
+Route::post('stocks_locations',[StockLocationController::class,'store']);
+Route::put('stocks_locations/{id}',[StockLocationController::class,'update']);
+Route::delete('stocks_locations/{id}',[StockLocationController::class,'delete']);
 
 // rota stocks - não possui chave primaria, como faz?
 

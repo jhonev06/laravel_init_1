@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StockLocationRequest;
 use App\Models\Stock_Location;
-use App\Models\StockLocation;
+
 use Illuminate\Http\Request;
 
 class StockLocationController extends Controller{

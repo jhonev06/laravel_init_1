@@ -10,7 +10,7 @@ class Order extends Model
     use HasFactory;
 
     protected $fillable = [
-        'id',
+        
         'number',
         'user_id',// foreign key
         'date',
