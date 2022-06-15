@@ -10,19 +10,19 @@ class Order_Iten extends Model
     use HasFactory;
 
     protected $fillable = [
-        'seq',
+        //'seq',
         'order_id',// foreign key
         'product_id',// foreign key
         'quantity',
         'value',
-        'discount',
-        'percent_discount'
+       // 'discount',
+        //'percent_discount'
         
     ];
 
     protected $table = 'orders_itens';
-    protected $keyType = 'integer';
-    protected $primaryKey = 'seq';
-    public $incrementing = false;
+   // protected $keyType = 'integer';
+   // protected $primaryKey = 'seq';
+   // public $incrementing = false;
 
 }

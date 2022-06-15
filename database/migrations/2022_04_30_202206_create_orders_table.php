@@ -16,18 +16,18 @@ class CreateOrdersTable extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->integer('number')->default(0);
-            $table->integer('user_id');// foreign key?
+            //$table->integer('user_id');// foreign key?
             $table->date('date');
-            $table->string('type',1);
-            $table->string('status',1);
-            $table->integer('customer_id');// foreign key?
-            $table->string('observation',200);
-            $table->integer('type_payment_id');// foreign key
+            //$table->string('type',1);
+            //$table->string('status',1);
+            //$table->integer('customer_id');// foreign key?
+            $table->string('observation',200)->nullable();
+           // $table->integer('type_payment_id');// foreign key
             $table->timestamps();
             
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('customer_id')->references('id')->on('customers');
-            $table->foreign('type_payment_id')->references('id')->on('type_payments');
+            //$table->foreign('user_id')->references('id')->on('users');
+            //$table->foreign('customer_id')->references('id')->on('customers');
+           // $table->foreign('type_payment_id')->references('id')->on('type_payments');
         });
     }
 

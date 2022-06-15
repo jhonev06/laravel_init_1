@@ -10,15 +10,15 @@ class Order extends Model
     use HasFactory;
 
     protected $fillable = [
-        
+        // Id aqui não definido , alto incrementa?
         'number',
-        'user_id',// foreign key
+        //'user_id',// foreign key
         'date',
-        'type',
-        'status',
-        'customer_id',// foreign key
+        //'type',
+        //'status',
+        //'customer_id',// foreign key
         'observation',// null
-        'type_payment_id'// foreign key
+        //'type_payment_id'// foreign key
         
         
     ];

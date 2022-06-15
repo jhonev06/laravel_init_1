@@ -25,14 +25,14 @@ class OrderRequest extends FormRequest
     {
         return [
             //
-            'number' => 'required|',
-            'user_id', // foreign key
+            //'number' => 'required|',
+            //'user_id', // foreign key
             'date' => 'required|',
-            'type' => 'required|',
-            'status' => 'required|',
-            'customer_id', // foreign key
-            'observation', // null
-            'type_payment_id' // foreign key
+            //'type' => 'required|',
+            //'status' => 'required|',
+            //'customer_id', // foreign key
+            //'observation', // null
+            //'type_payment_id' // foreign key
 
         ];
     }

@@ -30,7 +30,7 @@ class ProductSeeder extends Seeder
 
                 'name' => 'camisa',
                 'category_id' => 1, // CHAVE ESTRAGEIRA?                
-                'bulk_slug' => 'UN'
+                'bulk_slug' => 'CX'
 
 
             ]
