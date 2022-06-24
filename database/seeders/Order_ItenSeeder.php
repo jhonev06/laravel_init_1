@@ -14,24 +14,24 @@ class Order_ItenSeeder extends Seeder
      */
     public function run()
     {
-        Order_Iten::create([
-            'seq'=>1,
-            'order_id'=>1, // foreign key
-            'product_id'=>1, // foreign key
+        Order_Iten::UpdateOrcreate([
+            //'seq'=> 1,
+            'order_id'=> 1, // foreign key
+            'product_id'=> 1, // foreign key
             
 
 
 
         ]);
 
-        Order_Iten::create([
-            'seq'=>2,
-            'order_id'=>2, // foreign key
-            'product_id'=>2, // foreign key
+       // Order_Iten::create([
+            //'seq'=> 2,
+           // 'order_id'=> 2, // foreign key
+           // 'product_id'=> 2, // foreign key
             
 
 
 
-        ]);
+        //]);
     }
 }

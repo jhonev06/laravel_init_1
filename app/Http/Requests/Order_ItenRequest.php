@@ -25,13 +25,13 @@ class Order_ItenRequest extends FormRequest
     {
         return [
             //
-            'seq'=> 'required|unique:',
+            //'seq'=> 'required|unique:',
             'orders_id',// foreign key
             'product_id',// foreign key
-            'qtd'=> 'required',
+            'quantity'=> 'required',
             'value'=> 'required',
-            'discount'=> 'required',
-            'perc_discount'=> 'required'
+            //'discount'=> 'required',
+           // 'perc_discount'=> 'required'
         ];
     }
 }

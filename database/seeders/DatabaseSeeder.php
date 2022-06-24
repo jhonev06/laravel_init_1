@@ -3,6 +3,12 @@
 namespace Database\Seeders;
 
 use App\Models\Customer;
+use App\Models\Product;
+use App\Models\Bulk;
+use App\Models\Category;
+use App\Models\Stock_Location;
+use App\Models\User;
+use App\Models\Type_Payment;
 use App\Models\Order;
 use App\Models\Order_Iten;
 use Illuminate\Database\Seeder;
@@ -25,8 +31,8 @@ class DatabaseSeeder extends Seeder
             StockLocationSeeder::class,
             UserSeeder::class,
             Type_PaymentSeeder::class,
-            Order::class,
-            Order_Iten::class
+            OrderSeeder::class,
+            Order_ItenSeeder::class
 
 
         ]);

@@ -14,28 +14,28 @@ class OrderSeeder extends Seeder
      */
     public function run()
     {
-        Order::create([
+        Order::UpdateOrcreate([
             
-            'user_id'=>1, // foreign key
+            //'user_id'=> 1, // foreign key
             'date'=>'00/00/2000',
-            'type'=>'S',
-            'status'=>'S',
-            'customer_id'=>1, // foreign key
+            //'type'=>'S',
+            //'status'=>'S',
+            //'customer_id'=> 1, // foreign key
             'observation'=>'exemplo, exemplo', // null
-            'type_payment_id'=>1
+            //'type_payment_id'=> 1
 
 
         ]);
 
-        Order::create([
+        Order::UpdateOrcreate([
             
-            'user_id'=>2, // foreign key
+            //'user_id'=> 2, // foreign key
             'date'=>'00/00/2000',
-            'type'=>'S',
-            'status'=>'S',
-            'customer_id'=>2, // foreign key
+            //'type'=>'S',
+            //'status'=>'S',
+            //'customer_id'=> 2, // foreign key
             'observation'=>'exemplo, exemplo', // null
-            'type_payment_id'=>2
+           // 'type_payment_id'=> 2
 
 
         ]);

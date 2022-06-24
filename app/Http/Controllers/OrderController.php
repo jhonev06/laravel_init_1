@@ -2,47 +2,54 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\OrderRequest;
 use App\Models\Order;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller{
 
-    private $model;
-    public function __construct(Order $model)
-    {
-        $this->model = $model;
-    }
 
     public function index()
     {
-        $data = $this->model->all();
-        return response()->json($data);
+        $dataOrder = Order::all();
+        return response()->json($dataOrder);
     }
-
+// pq parametro id ? assinatura do metodo
     public function show($id)
     {
-        // MOSTRAR PEDIDO COM VALOR TOTAL 
-
+        $dataOrder = Order::find($id);
+        return response()->json($dataOrder);
     }
 
-    public function store(OrderRequest $request)
+    public function store(Request $request)
     {
-        //SALVAR PEDIDO COM ITENS 
-        // ATRIBUIR AUTOMATICAMENTE O CAMPO 'NUMBER' ( BUSCANDO NO BANCO O ULTIMO E INCREMENTANDO  +1) 
+        $request->validate([
+            
+            
+            'date'=> 'required',
+            
+            
+        ]);
 
+        $dataOrder = Order::create($request->all());
+        return response()->json($dataOrder);
     }
 
-    public function update(OrderRequest $request, $id)
+    public function update(Request $request, $id) 
     {
-       
-
+        $request->validate([
+            
+            'date'=> 'required',
+            
+            
+        ]);
+        $dataOrder = Order::find($id);
+        return response()->json($dataOrder);
     }
 
     public function delete($id)
     {
-        $data = $this->model->find($id);
-        $data->delete();
+        $dataOrderl = Order::find($id);
+        $dataOrderl->delete();
 
         return response()->json('',201);
     }
