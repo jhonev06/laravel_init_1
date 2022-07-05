@@ -24,6 +24,12 @@ class Order extends Model
     ];
 
     protected $table = 'orders';
+
+    public function itens()
+    {
+      return $this->hasmany(Order_Iten::class);
+
+    }
     
 
 }

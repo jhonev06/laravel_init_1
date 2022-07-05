@@ -35,5 +35,18 @@ class ProductSeeder extends Seeder
 
             ]
         );
+
+        Product::create(
+            [
+
+                'name' => 'calça',
+                'category_id' => 1, // CHAVE ESTRAGEIRA?                
+                'bulk_slug' => 'KG'
+
+
+            ]
+        );
+
+        
     }
 }

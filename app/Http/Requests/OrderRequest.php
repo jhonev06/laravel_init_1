@@ -25,9 +25,9 @@ class OrderRequest extends FormRequest
     {
         return [
             //
-            //'number' => 'required|',
+            'number' => 'required',
             //'user_id', // foreign key
-            'date' => 'required|',
+            'date' => 'required',
             //'type' => 'required|',
             //'status' => 'required|',
             //'customer_id', // foreign key

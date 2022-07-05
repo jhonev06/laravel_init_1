@@ -21,23 +21,12 @@ class OrderSeeder extends Seeder
             //'type'=>'S',
             //'status'=>'S',
             //'customer_id'=> 1, // foreign key
-            'observation'=>'exemplo, exemplo', // null
+            'observation'=>'teste, teste', // null
             //'type_payment_id'=> 1
 
 
         ]);
 
-        Order::UpdateOrcreate([
-            
-            //'user_id'=> 2, // foreign key
-            'date'=>'00/00/2000',
-            //'type'=>'S',
-            //'status'=>'S',
-            //'customer_id'=> 2, // foreign key
-            'observation'=>'exemplo, exemplo', // null
-           // 'type_payment_id'=> 2
-
-
-        ]);
+        
     }
 }

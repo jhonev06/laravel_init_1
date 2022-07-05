@@ -25,4 +25,9 @@ class Order_Iten extends Model
    // protected $primaryKey = 'seq';
    // public $incrementing = false;
 
+   public function order()
+   {
+    return $this->belongsTo(Order::class);
+   }
+
 }

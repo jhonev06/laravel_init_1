@@ -2,54 +2,55 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\OrderRequest;
 use App\Models\Order;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller{
 
+    private $model;
+    public function __construct(Order $model)
+    {
+        $this->model = $model;
+    }
 
     public function index()
     {
-        $dataOrder = Order::all();
-        return response()->json($dataOrder);
+        $data = $this->model->all();
+        return response()->json($data);
     }
-// pq parametro id ? assinatura do metodo
+
     public function show($id)
     {
-        $dataOrder = Order::find($id);
-        return response()->json($dataOrder);
+        // MOSTRAR PEDIDO COM VALOR TOTAL 
+
     }
 
-    public function store(Request $request)
+    public function store(OrderRequest $request)
     {
-        $request->validate([
-            
-            
-            'date'=> 'required',
-            
-            
-        ]);
+        //SALVAR PEDIDO COM ITENS 
+        // ATRIBUIR AUTOMATICAMENTE O CAMPO 'NUMBER' ( BUSCANDO NO BANCO O ULTIMO E INCREMENTANDO  +1) 
+       $request_data = $request->all();
+       $order = Order::create($request_data);
+       foreach($request_data['itens'] as $item){
+        $order->itens()->create($item);
 
-        $dataOrder = Order::create($request->all());
-        return response()->json($dataOrder);
+       }
+       return response()->json($order->with('itens')->get());
+
+
     }
 
-    public function update(Request $request, $id) 
+    public function update(OrderRequest $request, $id)
     {
-        $request->validate([
-            
-            'date'=> 'required',
-            
-            
-        ]);
-        $dataOrder = Order::find($id);
-        return response()->json($dataOrder);
+       
+
     }
 
     public function delete($id)
     {
-        $dataOrderl = Order::find($id);
-        $dataOrderl->delete();
+        $data = $this->model->find($id);
+        $data->delete();
 
         return response()->json('',201);
     }
